@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>FreshEssentials</id>
+    <version>1.0.0</version>
+    <title>FreshEssentials</title>
+    <authors>Michael Ridland @ XAM Consulting</authors>
+    <owners>Michael Ridland @ XAM Consulting</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Usefull controls in Xamarin.Forms</description>    
+    <tags>Xamarin, Xamarin.Forms, FreshEssentials</tags>
+  </metadata>
+    <files>
+        <file src="src/FreshEssentials/bin/Release/FreshEssentials*.*" target="lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10" />
+
+        <file src="src/iOS/bin/Release/FreshEssentials*.*" target="lib\Xamarin.iOS10" />
+
+        <file src="src/Droid/bin/Release/FreshEssentials*.*" target="lib\MonoAndroid10" />
+    </files>
+</package>

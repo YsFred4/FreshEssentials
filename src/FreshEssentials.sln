@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshEssentials", "FreshEssentials\FreshEssentials.csproj", "{99D84C84-D9FF-49AA-8AF0-3D7FD4E5C616}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshEssentials.iOS", "iOS\FreshEssentials.iOS.csproj", "{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshEssentials.Droid", "Droid\FreshEssentials.Droid.csproj", "{167E5096-F7F8-4069-9200-5AA0C350D96B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{167E5096-F7F8-4069-9200-5AA0C350D96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167E5096-F7F8-4069-9200-5AA0C350D96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167E5096-F7F8-4069-9200-5AA0C350D96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167E5096-F7F8-4069-9200-5AA0C350D96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D84C84-D9FF-49AA-8AF0-3D7FD4E5C616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D84C84-D9FF-49AA-8AF0-3D7FD4E5C616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D84C84-D9FF-49AA-8AF0-3D7FD4E5C616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D84C84-D9FF-49AA-8AF0-3D7FD4E5C616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
