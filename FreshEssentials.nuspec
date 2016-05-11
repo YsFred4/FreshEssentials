@@ -36,5 +36,7 @@ Attached Properties
         <file src="src/iOS/bin/Release/FreshEssentials*.*" target="lib\Xamarin.iOS10" />
 
         <file src="src/Droid/bin/Release/FreshEssentials*.*" target="lib\MonoAndroid10" />
+
+        <file src="src/UWP/bin/Release/FreshEssentials*.*" target="lib\uap10.0" />
     </files>
 </package>
