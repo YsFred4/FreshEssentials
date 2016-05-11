@@ -2,12 +2,32 @@
 <package >
   <metadata>
     <id>FreshEssentials</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <title>FreshEssentials</title>
     <authors>Michael Ridland @ XAM Consulting</authors>
-    <owners>Michael Ridland @ XAM Consulting</owners>
+    <owners>rid00z</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Usefull controls in Xamarin.Forms</description>    
+    <description>
+    FreshEssentials for Xamarin.Forms has ONLY the most common elements you need for Xamarin.Forms. Designed so that it bring in just enough for the majority of projects.
+
+Controls:
+
+-BindablePicker
+
+-AdvancedFrame (flexible rounded corners)
+
+-SegmentedButtonGroup
+
+Converters:
+
+-InverseBooleanConverter
+
+Attached Properties
+
+-ListViewItemTappedAttached
+
+-TappedGestureAttached
+</description>    
     <tags>Xamarin, Xamarin.Forms, FreshEssentials</tags>
   </metadata>
     <files>
