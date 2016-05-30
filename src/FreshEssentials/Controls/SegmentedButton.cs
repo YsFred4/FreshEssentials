@@ -36,6 +36,14 @@ namespace FreshEssentials
             set { SetValue(CommandProperty, value); }
         }
 
+        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create<SegmentedButtonGroup, int>(p => p.CornerRadius, 0);
+
+        public int CornerRadius
+        {
+            get { return (int)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
+        }
+
         public IList<SegmentedButton> SegmentedButtons
         {
             get;
