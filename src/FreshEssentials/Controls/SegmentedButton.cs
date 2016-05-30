@@ -114,6 +114,8 @@ namespace FreshEssentials
                     frame.Corners = RoundedCorners.right;
                 else
                     frame.Corners = RoundedCorners.none;
+                    
+                frame.CornerRadius = CornerRadius;    
                 frame.OutlineColor = OnColor;
                 frame.Content = label;
                 frame.HorizontalOptions = LayoutOptions.FillAndExpand;
