@@ -46,13 +46,16 @@ namespace FreshEssentials
             set
             {
                 base.SetValue(BindablePicker.SelectedItemProperty, value);
-                if (ItemsSource.Contains(SelectedItem))
+                if (ItemsSource != null && SelectedItem != null)
                 {
-                    SelectedIndex = ItemsSource.IndexOf(SelectedItem);
-                }
-                else
-                {
-                    SelectedIndex = -1;
+                    if (ItemsSource.Contains(SelectedItem))
+                    {
+                        SelectedIndex = ItemsSource.IndexOf(SelectedItem);
+                    }
+                    else
+                    {
+                        SelectedIndex = -1;
+                    }
                 }
             }
         }
