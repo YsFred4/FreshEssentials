@@ -14,7 +14,7 @@ namespace FreshEssentials
             base.SelectedIndexChanged += OnSelectedIndexChanged;
         }
 
-        public static readonly BindableProperty CanHaveAllProperty = BindableProperty.Create<BindablePicker, bool>(p => p.CanHaveAll, false);
+        public static readonly BindableProperty CanHaveAllProperty = BindableProperty.Create("CanHaveAll", typeof(bool), typeof(BindablePicker), false);
 
         public bool CanHaveAll
         {
@@ -22,7 +22,7 @@ namespace FreshEssentials
             set { SetValue(CanHaveAllProperty, value); }
         }
 
-        public static readonly BindableProperty AllTitleProperty = BindableProperty.Create<BindablePicker, string>(p => p.AllTitle, default(string));
+        public static readonly BindableProperty AllTitleProperty = BindableProperty.Create("AllTitle", typeof(string), typeof(BindablePicker), default(string));
 
         public string AllTitle
         {

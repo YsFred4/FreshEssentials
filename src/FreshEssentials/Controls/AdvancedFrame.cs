@@ -13,7 +13,7 @@ namespace FreshEssentials
 
     public class AdvancedFrame: Frame
     {
-        public static readonly BindableProperty InnerBackgroundProperty = BindableProperty.Create<AdvancedFrame, Color>(p => p.InnerBackground, default(Color));
+        public static readonly BindableProperty InnerBackgroundProperty = BindableProperty.Create("InnerBackground", typeof(Color), typeof(AdvancedFrame), default(Color));
 
         public Color InnerBackground
         {
