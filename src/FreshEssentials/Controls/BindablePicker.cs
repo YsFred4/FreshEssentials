@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace FreshEssentials
 {
-    public class BindablePicker: Picker
+    public class BindablePicker : Picker
     {
         public BindablePicker()
         {
@@ -33,6 +33,7 @@ namespace FreshEssentials
         public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create("SelectedItem", typeof(object), typeof(BindablePicker), null, BindingMode.TwoWay, null, new BindableProperty.BindingPropertyChangedDelegate(BindablePicker.OnSelectedItemChanged), null, null, null);
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create("ItemsSource", typeof(IEnumerable), typeof(BindablePicker), null, BindingMode.OneWay, null, new BindableProperty.BindingPropertyChangedDelegate(BindablePicker.OnItemsSourceChanged), null, null, null);
         public static readonly BindableProperty DisplayPropertyProperty = BindableProperty.Create("DisplayProperty", typeof(string), typeof(BindablePicker), null, BindingMode.OneWay, null, new BindableProperty.BindingPropertyChangedDelegate(BindablePicker.OnDisplayPropertyChanged), null, null, null);
+        private bool disableEvents;
 
         public IList ItemsSource
         {
@@ -68,13 +69,15 @@ namespace FreshEssentials
 
         private void OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            if (disableEvents) return;
+
             if (SelectedIndex == -1)
             {
                 this.SelectedItem = null;
             }
             else if (CanHaveAll && SelectedIndex == 0)
             {
-                this.SelectedItem = null;    
+                this.SelectedItem = null;
             }
             else
             {
@@ -139,6 +142,7 @@ namespace FreshEssentials
             BindablePicker picker = (BindablePicker)bindable;
             if (picker.ItemsSource as IEnumerable != null)
             {
+                picker.disableEvents = true;
                 picker.SelectedIndex = -1;
                 picker.Items.Clear();
                 int count = 0;
@@ -171,6 +175,7 @@ namespace FreshEssentials
                     }
                     count++;
                 }
+                picker.disableEvents = false;
             }
         }
     }
