@@ -14,22 +14,6 @@ namespace FreshEssentials
             base.SelectedIndexChanged += OnSelectedIndexChanged;
         }
 
-        public static readonly BindableProperty CanHaveAllProperty = BindableProperty.Create<BindablePicker, bool>(p => p.CanHaveAll, false);
-
-        public bool CanHaveAll
-        {
-            get { return (bool)GetValue(CanHaveAllProperty); }
-            set { SetValue(CanHaveAllProperty, value); }
-        }
-
-        public static readonly BindableProperty AllTitleProperty = BindableProperty.Create<BindablePicker, string>(p => p.AllTitle, default(string));
-
-        public string AllTitle
-        {
-            get { return (string)GetValue(AllTitleProperty); }
-            set { SetValue(AllTitleProperty, value); }
-        }
-
         public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create("SelectedItem", typeof(object), typeof(BindablePicker), null, BindingMode.TwoWay, null, new BindableProperty.BindingPropertyChangedDelegate(BindablePicker.OnSelectedItemChanged), null, null, null);
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create("ItemsSource", typeof(IEnumerable), typeof(BindablePicker), null, BindingMode.OneWay, null, new BindableProperty.BindingPropertyChangedDelegate(BindablePicker.OnItemsSourceChanged), null, null, null);
         public static readonly BindableProperty DisplayPropertyProperty = BindableProperty.Create("DisplayProperty", typeof(string), typeof(BindablePicker), null, BindingMode.OneWay, null, new BindableProperty.BindingPropertyChangedDelegate(BindablePicker.OnDisplayPropertyChanged), null, null, null);
@@ -69,10 +53,6 @@ namespace FreshEssentials
             {
                 this.SelectedItem = null;
             }
-            else if (CanHaveAll && SelectedIndex == 0)
-            {
-                this.SelectedItem = null;    
-            }
             else
             {
                 this.SelectedItem = ItemsSource[SelectedIndex];
@@ -110,23 +90,7 @@ namespace FreshEssentials
         {
             BindablePicker picker = (BindablePicker)bindable;
 
-            if (picker.CanHaveAll && oldValue is IList && newValue is IList
-                && (((IList)oldValue).Count + 1) == (((IList)newValue).Count))
-            {
-                //This is if we just added the new one already
-            }
-            else if (picker.CanHaveAll)
-            {
-                var objectList = new List<object>();
-                objectList.Add(picker.AllTitle);
-                foreach (var item in ((IList)newValue))
-                    objectList.Add(item);
-                picker.ItemsSource = objectList;
-            }
-            else
-            {
-                picker.ItemsSource = (IList)newValue;
-            }
+            picker.ItemsSource = (IList)newValue;
 
             loadItemsAndSetSelected(bindable);
         }
