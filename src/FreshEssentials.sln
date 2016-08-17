@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshEssentials.Droid", "Dr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshEssentials.UWP", "UWP\FreshEssentials.UWP.csproj", "{33C343D6-8FA2-46E1-B753-422CA1554E40}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{7463B33D-C1CF-4780-A10C-D34BA5F6E00B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,8 @@ Global
 		{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}.Release|x64.Build.0 = Release|Any CPU
 		{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}.Release|x86.ActiveCfg = Release|Any CPU
 		{BE93CF9E-D82C-40D8-A2E3-76C669BD13E8}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		version = 1.1.0

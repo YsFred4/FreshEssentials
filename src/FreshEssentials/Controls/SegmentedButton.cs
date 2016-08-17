@@ -12,7 +12,7 @@ namespace FreshEssentials
 
     public class SegmentedButtonGroup : Grid
     {
-        public static readonly BindableProperty OnColorProperty = BindableProperty.Create<SegmentedButtonGroup, Color>(p => p.OnColor, Color.Blue);
+        public static readonly BindableProperty OnColorProperty = BindableProperty.Create("OnColor", typeof(Color), typeof(SegmentedButtonGroup), Color.Blue);
 
         public Color OnColor
         {
@@ -20,7 +20,7 @@ namespace FreshEssentials
             set { SetValue(OnColorProperty, value); }
         }
 
-        public static readonly BindableProperty OffColorProperty = BindableProperty.Create<SegmentedButtonGroup, Color>(p => p.OffColor, Color.White);
+        public static readonly BindableProperty OffColorProperty = BindableProperty.Create("OffColor", typeof(Color), typeof(SegmentedButtonGroup), Color.White);
 
         public Color OffColor
         {
@@ -28,12 +28,20 @@ namespace FreshEssentials
             set { SetValue(OffColorProperty, value); }
         }
 
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create<SegmentedButtonGroup, Command>(p => p.Command, default(Command));
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(Command), typeof(SegmentedButtonGroup), default(Command));
 
         public Command Command
         {
             get { return (Command)GetValue(CommandProperty); }
             set { SetValue(CommandProperty, value); }
+        }
+
+        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create("CornerRadius", typeof(int), typeof(SegmentedButtonGroup), 0);
+
+        public int CornerRadius
+        {
+            get { return (int)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
         }
 
         public IList<SegmentedButton> SegmentedButtons
@@ -42,12 +50,20 @@ namespace FreshEssentials
             internal set;
         }
 
-        public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create<SegmentedButtonGroup, int>(p => p.SelectedIndex, default(int));
+        public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create("SelectedIndex", typeof(int), typeof(SegmentedButtonGroup), default(int));
 
         public int SelectedIndex
         {
             get { return (int)GetValue(SelectedIndexProperty); }
             set { SetValue(SelectedIndexProperty, value); }
+        }
+
+        public static readonly BindableProperty FontSizeProperty = BindableProperty.Create("FontSize", typeof(string), typeof(SegmentedButtonGroup), "Small");
+
+        public string FontSize
+        {
+            get { return (string)GetValue(FontSizeProperty); }
+            set { SetValue(FontSizeProperty, value); }
         }
 
         public SegmentedButtonGroup()
@@ -90,10 +106,23 @@ namespace FreshEssentials
             {
                 var buttonSeg = SegmentedButtons[i];
 
+                double fontSize;    // local variable to save the interpreted font size
+                try
+                {
+                    // convert the normal names first
+                    fontSize = Device.GetNamedSize((NamedSize)Enum.Parse(typeof(NamedSize), FontSize, true), typeof(Label));
+                }
+                catch (Exception)
+                {
+                    // convert as a double and default if there is a problem
+                    if(double.TryParse(FontSize, out fontSize) == false)
+                        fontSize = Device.GetNamedSize(NamedSize.Default, typeof(Label));
+                }
+
                 var label = new Label
                 { 
                     Text = buttonSeg.Title, 
-                    FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), 
+                    FontSize = fontSize, 
                     HorizontalTextAlignment = TextAlignment.Center, 
                     VerticalTextAlignment = TextAlignment.Center 
                 };
@@ -106,6 +135,8 @@ namespace FreshEssentials
                     frame.Corners = RoundedCorners.right;
                 else
                     frame.Corners = RoundedCorners.none;
+                    
+                frame.CornerRadius = CornerRadius;    
                 frame.OutlineColor = OnColor;
                 frame.Content = label;
                 frame.HorizontalOptions = LayoutOptions.FillAndExpand;

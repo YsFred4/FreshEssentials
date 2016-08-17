@@ -25,7 +25,7 @@ namespace FreshEssentials.UWP
             if (e.NewElement != null)
             {
                 myFrame = (e.NewElement as AdvancedFrame);
-                
+
                 int topLeft = myFrame.Corners == RoundedCorners.left || myFrame.Corners == RoundedCorners.all ? myFrame.CornerRadius : 0;
                 int topRight = myFrame.Corners == RoundedCorners.right || myFrame.Corners == RoundedCorners.all ? myFrame.CornerRadius : 0;
                 int bottomRight = myFrame.Corners == RoundedCorners.right || myFrame.Corners == RoundedCorners.all ? myFrame.CornerRadius : 0;
@@ -50,9 +50,15 @@ namespace FreshEssentials.UWP
 
             if (e.PropertyName == "InnerBackground" || e.PropertyName == "OutlineColor")
             {
-                this.UpdateNativeControl();
+                this.Control.Background = new SolidColorBrush(
+                       Windows.UI.Color.FromArgb(
+                           (byte)Math.Round(myFrame.InnerBackground.A * 255),
+                           (byte)Math.Round(myFrame.InnerBackground.R * 255),
+                           (byte)Math.Round(myFrame.InnerBackground.G * 255),
+                           (byte)Math.Round(myFrame.InnerBackground.B * 255)
+                           ));
             }
         }
-        
+
     }
 }
