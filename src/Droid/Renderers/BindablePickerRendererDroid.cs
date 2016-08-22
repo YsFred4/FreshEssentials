@@ -14,7 +14,7 @@ using Object = Java.Lang.Object;
 [assembly: ExportRenderer(typeof(BindablePicker), typeof(FreshEssentials.Droid.BindablePickerRendererDroid))]
 namespace FreshEssentials.Droid
 {
-    public class BindablePickerRendererDroid : ViewRenderer<Picker, AButton>
+    public class BindablePickerRendererDroid : ViewRenderer<BindablePicker, AButton>
     {
         AlertDialog _dialog;
 
@@ -36,7 +36,7 @@ namespace FreshEssentials.Droid
             base.Dispose(disposing);
         }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<BindablePicker> e)
         {
             if (e.OldElement != null)
                 ((ObservableCollection<string>)e.OldElement.Items).CollectionChanged -= RowsCollectionChanged;
@@ -118,7 +118,10 @@ namespace FreshEssentials.Droid
 
         void UpdatePicker()
         {
-            Control.Hint = Element.Title;
+            if (Element.SelectedIndex < 0)
+                Control.Text = Element.Title;
+            else
+                Control.Text = Element.Items[Element.SelectedIndex];
         }
 
         class PickerListener : Object, IOnClickListener
