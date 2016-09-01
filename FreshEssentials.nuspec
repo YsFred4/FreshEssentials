@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>FreshEssentials</id>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
     <title>FreshEssentials</title>
     <authors>Michael Ridland @ XAM Consulting</authors>
     <owners>rid00z</owners>
@@ -31,7 +31,23 @@ Attached Properties
 -ListViewItemTappedAttached
 
 -TappedGestureAttached
-</description>    
+    </description>
+    <releaseNotes>
+2.1.1
+[fix]     BindablePicker Android title update issue.
+
+2.1.0
+[feature] Add AutoGrid.
+[fix]     BindablePicker issues.
+[feature] Change BindablePicker based on a button.
+[feature] Add HasDataConverter.
+
+2.0.0
+[feature] Support UWP.
+
+1.1.0
+[feature] Support for Xamarin.Forms 2.2.
+    </releaseNotes>
     <tags>Xamarin, Xamarin.Forms, FreshEssentials</tags>
   </metadata>
     <files>
